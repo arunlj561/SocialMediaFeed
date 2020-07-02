@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7FC8477724AE058200663229 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8477624AE058200663229 /* AppDelegate.swift */; };
-		7FC8477924AE058200663229 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8477824AE058200663229 /* SceneDelegate.swift */; };
 		7FC8477B24AE058200663229 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8477A24AE058200663229 /* ViewController.swift */; };
 		7FC8477E24AE058200663229 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8477C24AE058200663229 /* Main.storyboard */; };
 		7FC8478124AE058200663229 /* SocailMediaFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8477F24AE058200663229 /* SocailMediaFeed.xcdatamodeld */; };
@@ -30,7 +29,6 @@
 /* Begin PBXFileReference section */
 		7FC8477324AE058200663229 /* SocailMediaFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocailMediaFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC8477624AE058200663229 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7FC8477824AE058200663229 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7FC8477A24AE058200663229 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7FC8477D24AE058200663229 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7FC8478024AE058200663229 /* SocailMediaFeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SocailMediaFeed.xcdatamodel; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				7FC8477624AE058200663229 /* AppDelegate.swift */,
-				7FC8477824AE058200663229 /* SceneDelegate.swift */,
 				7FC8477A24AE058200663229 /* ViewController.swift */,
 				7FC8477C24AE058200663229 /* Main.storyboard */,
 				7FC8478224AE058400663229 /* Assets.xcassets */,
@@ -205,7 +202,6 @@
 			files = (
 				7FC8477B24AE058200663229 /* ViewController.swift in Sources */,
 				7FC8477724AE058200663229 /* AppDelegate.swift in Sources */,
-				7FC8477924AE058200663229 /* SceneDelegate.swift in Sources */,
 				7FC8478124AE058200663229 /* SocailMediaFeed.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SocailMediaFeed/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -385,6 +382,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SocailMediaFeed/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
