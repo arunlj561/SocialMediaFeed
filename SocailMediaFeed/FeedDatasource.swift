@@ -26,8 +26,3 @@ class FeedDatasource:NSObject, UITableViewDataSource{
     
     
 }
-extension UITableViewCell{
-    static var reuseIdentifier:String{
-        return "\(self)"
-    }
-}
