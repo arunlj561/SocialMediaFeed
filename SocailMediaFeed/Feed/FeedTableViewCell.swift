@@ -21,4 +21,15 @@ class FeedTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBOutlet weak var userAvatar: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var designation: UILabel!
+    @IBOutlet weak var timestamp: UILabel!
+    @IBOutlet weak var media: UIImageView!
+    @IBOutlet weak var articleContent: UILabel!
+    @IBOutlet weak var articleTitle: UILabel!
+    @IBOutlet weak var articleLink: UILabel!
+    @IBOutlet weak var likes: UILabel!
+    @IBOutlet weak var comments: UILabel!
+    
 }
