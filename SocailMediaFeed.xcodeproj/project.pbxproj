@@ -14,6 +14,8 @@
 		7FC8478324AE058400663229 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8478224AE058400663229 /* Assets.xcassets */; };
 		7FC8478624AE058400663229 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8478424AE058400663229 /* LaunchScreen.storyboard */; };
 		7FC8479124AE058400663229 /* SocailMediaFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8479024AE058400663229 /* SocailMediaFeedTests.swift */; };
+		7FC8479C24AE060E00663229 /* FeedDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8479B24AE060E00663229 /* FeedDatasource.swift */; };
+		7FC8479E24AE06AC00663229 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8479D24AE06AC00663229 /* FeedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		7FC8478C24AE058400663229 /* SocailMediaFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocailMediaFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC8479024AE058400663229 /* SocailMediaFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocailMediaFeedTests.swift; sourceTree = "<group>"; };
 		7FC8479224AE058400663229 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FC8479B24AE060E00663229 /* FeedDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDatasource.swift; sourceTree = "<group>"; };
+		7FC8479D24AE06AC00663229 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 			children = (
 				7FC8477624AE058200663229 /* AppDelegate.swift */,
 				7FC8477A24AE058200663229 /* ViewController.swift */,
+				7FC8479B24AE060E00663229 /* FeedDatasource.swift */,
+				7FC8479D24AE06AC00663229 /* FeedTableViewCell.swift */,
 				7FC8477C24AE058200663229 /* Main.storyboard */,
 				7FC8478224AE058400663229 /* Assets.xcassets */,
 				7FC8478424AE058400663229 /* LaunchScreen.storyboard */,
@@ -202,7 +208,9 @@
 			files = (
 				7FC8477B24AE058200663229 /* ViewController.swift in Sources */,
 				7FC8477724AE058200663229 /* AppDelegate.swift in Sources */,
+				7FC8479C24AE060E00663229 /* FeedDatasource.swift in Sources */,
 				7FC8478124AE058200663229 /* SocailMediaFeed.xcdatamodeld in Sources */,
+				7FC8479E24AE06AC00663229 /* FeedTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
