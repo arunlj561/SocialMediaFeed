@@ -11,37 +11,55 @@ public enum ServiceResult<T> {
     case success(T)
 }
 
-
 fileprivate enum ServiceParamType{
     case feed(String)
     
     var path:String{
         switch self {
-            case .feed: return "v1/blogs"
+            case .feed: return "v1/blogs?page=1&limit=10"
         }
     }
-    var url:URL?{
+    var fullPath:String{
         switch self {
             case .feed(let base):
-            return URL(string: base + self.path)
+            return base + self.path
         }
     }
+    
+    func getParam(_ pageNo:Int) -> [String:Any]? {
+        switch self {
+        case .feed(_):
+            return ["page":pageNo,"limit":pageLimit]
+        }
+    }
+    
+    func getUrl(_ pageNo:Int) -> URL?{
+        switch self {
+        case .feed(_):
+            var urlComponents = URLComponents(string: fullPath)
+            if let param = getParam(pageNo) {
+                urlComponents?.queryItems = getQueryParams(param)
+            }
+            return urlComponents?.url
+        }
+    }
+    
 }
 
 import UIKit
 class ServiceManager {
-    let baseUrl = "https://5e99a9b1bc561b0016af3540.mockapi.io/jet2/api"
-    ///v1/blogs?page=1&limit=10
+    let baseUrl = "https://5e99a9b1bc561b0016af3540.mockapi.io/jet2/api/"
     static let sharedInstance = ServiceManager()
     
     private init() {
     }
     
-    func getUserFeeds(_ completion:@escaping((ServiceResult<[Feed]>) -> Void)){
+    func getUserFeeds(_ pageNo:Int, completion:@escaping((ServiceResult<[Feed]>) -> Void)){
         let feedParam = ServiceParamType.feed(baseUrl)
-        guard let url = feedParam.url else {
+        guard let url = feedParam.getUrl(pageNo) else {
             return
         }
+                
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error{
                 completion(.failure(error))
@@ -50,9 +68,11 @@ class ServiceManager {
             guard let data = data else{
                 return
             }
-            do{
+            do{                
                 let jsonDecoder = JSONDecoder.init()
-                jsonDecoder.dateDecodingStrategy = .iso8601
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
                 let feeds = try jsonDecoder.decode([Feed].self, from: data)
                 completion(.success(feeds))
             }catch (let error) {
@@ -61,4 +81,6 @@ class ServiceManager {
         }
         task.resume()
     }
+    
+    
 }

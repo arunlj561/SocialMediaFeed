@@ -8,8 +8,20 @@
 
 import UIKit
 
+let pageLimit = 10
+
 extension UITableViewCell{
     static var reuseIdentifier:String{
         return "\(self)"
+    }
+}
+
+func getQueryParams(_ param:[String:Any?]) -> [URLQueryItem]?{
+    return param.map { (key: String, value: Any?) -> URLQueryItem in
+        if let value = value {
+            let valueString = String(describing: value)
+            return URLQueryItem(name: key, value: valueString)
+        }
+        return URLQueryItem(name: "", value: "")
     }
 }

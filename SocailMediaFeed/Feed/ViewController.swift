@@ -12,7 +12,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        ServiceManager.sharedInstance.getUserFeeds(1) { (results) in
+            print(results)
+        }
     }
 
 
