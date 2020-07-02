@@ -17,6 +17,8 @@
 		7FC8479C24AE060E00663229 /* FeedDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8479B24AE060E00663229 /* FeedDatasource.swift */; };
 		7FC8479E24AE06AC00663229 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8479D24AE06AC00663229 /* FeedTableViewCell.swift */; };
 		7FC847A024AE070500663229 /* Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8479F24AE070500663229 /* Extras.swift */; };
+		7FC847A324AE076400663229 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC847A224AE076400663229 /* ServiceManager.swift */; };
+		7FC847A524AE0F4600663229 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC847A424AE0F4600663229 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		7FC8479B24AE060E00663229 /* FeedDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDatasource.swift; sourceTree = "<group>"; };
 		7FC8479D24AE06AC00663229 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		7FC8479F24AE070500663229 /* Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extras.swift; sourceTree = "<group>"; };
+		7FC847A224AE076400663229 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		7FC847A424AE0F4600663229 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +90,9 @@
 			isa = PBXGroup;
 			children = (
 				7FC8477624AE058200663229 /* AppDelegate.swift */,
-				7FC8477A24AE058200663229 /* ViewController.swift */,
-				7FC8479B24AE060E00663229 /* FeedDatasource.swift */,
-				7FC8479D24AE06AC00663229 /* FeedTableViewCell.swift */,
+				7FC847A124AE074400663229 /* Feed */,
 				7FC8479F24AE070500663229 /* Extras.swift */,
+				7FC847A224AE076400663229 /* ServiceManager.swift */,
 				7FC8477C24AE058200663229 /* Main.storyboard */,
 				7FC8478224AE058400663229 /* Assets.xcassets */,
 				7FC8478424AE058400663229 /* LaunchScreen.storyboard */,
@@ -106,6 +109,17 @@
 				7FC8479224AE058400663229 /* Info.plist */,
 			);
 			path = SocailMediaFeedTests;
+			sourceTree = "<group>";
+		};
+		7FC847A124AE074400663229 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				7FC8477A24AE058200663229 /* ViewController.swift */,
+				7FC8479B24AE060E00663229 /* FeedDatasource.swift */,
+				7FC8479D24AE06AC00663229 /* FeedTableViewCell.swift */,
+				7FC847A424AE0F4600663229 /* User.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,7 +227,9 @@
 				7FC8477724AE058200663229 /* AppDelegate.swift in Sources */,
 				7FC8479C24AE060E00663229 /* FeedDatasource.swift in Sources */,
 				7FC8478124AE058200663229 /* SocailMediaFeed.xcdatamodeld in Sources */,
+				7FC847A524AE0F4600663229 /* User.swift in Sources */,
 				7FC847A024AE070500663229 /* Extras.swift in Sources */,
+				7FC847A324AE076400663229 /* ServiceManager.swift in Sources */,
 				7FC8479E24AE06AC00663229 /* FeedTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
