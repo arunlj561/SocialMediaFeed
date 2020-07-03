@@ -10,7 +10,11 @@ import UIKit
 
 class FeedDatasource:NSObject, UITableViewDataSource{
     
-    var row :[String] = []
+    var row :[Feed] = []
+    
+    func updateRows(_ feed:[Feed]){
+        row = feed
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return row.count
