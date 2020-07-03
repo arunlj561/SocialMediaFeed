@@ -76,6 +76,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7FB14C3724AFA24500960054 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7FC8479B24AE060E00663229 /* FeedDatasource.swift */,
+				7F090A1B24AE87B300BB930E /* FeedListViewModel.swift */,
+				7F090A1924AE87A100BB930E /* FeedViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7FB14C3824AFA25100960054 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7FC8477A24AE058200663229 /* ViewController.swift */,
+				7FC8479D24AE06AC00663229 /* FeedTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7FB14C3924AFA26300960054 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7FC847A424AE0F4600663229 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7FB14C3A24AFA27400960054 /* API Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7FC847A224AE076400663229 /* ServiceManager.swift */,
+				7F4FF78724AF5B8B0003DC46 /* ImageDownloader.swift */,
+			);
+			path = "API Manager";
+			sourceTree = "<group>";
+		};
 		7FC8476A24AE058200663229 = {
 			isa = PBXGroup;
 			children = (
@@ -101,8 +137,7 @@
 				7FC847A124AE074400663229 /* Feed */,
 				7FC8479F24AE070500663229 /* Extras.swift */,
 				7F6C8ACA24AECEB700387D61 /* Box.swift */,
-				7FC847A224AE076400663229 /* ServiceManager.swift */,
-				7F4FF78724AF5B8B0003DC46 /* ImageDownloader.swift */,
+				7FB14C3A24AFA27400960054 /* API Manager */,
 				7FC8477C24AE058200663229 /* Main.storyboard */,
 				7FC8478224AE058400663229 /* Assets.xcassets */,
 				7FC8478424AE058400663229 /* LaunchScreen.storyboard */,
@@ -124,12 +159,9 @@
 		7FC847A124AE074400663229 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				7FC8477A24AE058200663229 /* ViewController.swift */,
-				7FC8479B24AE060E00663229 /* FeedDatasource.swift */,
-				7F090A1B24AE87B300BB930E /* FeedListViewModel.swift */,
-				7F090A1924AE87A100BB930E /* FeedViewModel.swift */,
-				7FC8479D24AE06AC00663229 /* FeedTableViewCell.swift */,
-				7FC847A424AE0F4600663229 /* User.swift */,
+				7FB14C3824AFA25100960054 /* View */,
+				7FB14C3724AFA24500960054 /* ViewModel */,
+				7FB14C3924AFA26300960054 /* Model */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
