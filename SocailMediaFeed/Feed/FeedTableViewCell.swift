@@ -20,6 +20,12 @@ class FeedTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        userAvatar.image = UIImage(named: "placeholder")
+        media.image = nil
+    }
 
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var userName: UILabel!
@@ -39,11 +45,12 @@ class FeedTableViewCell: UITableViewCell {
         timestamp.text = feedViewModel.timestamp
         articleContent.text = feedViewModel.articleContent
         articleTitle.text = feedViewModel.articleTitle
-        articleLink.text = feedViewModel.articleLink
+        articleLink.attributedText = feedViewModel.articleLink        
         likes.text = feedViewModel.likes
         comments.text = feedViewModel.comments
-        if feedViewModel.mediaUrl == nil{
-        
+        userAvatar.image = feedViewModel.avtarImage
+        if let mediaImage = feedViewModel.mediaImage{
+            media.image = mediaImage
         }
     }
     
