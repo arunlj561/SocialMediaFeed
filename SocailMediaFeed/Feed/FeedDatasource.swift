@@ -10,10 +10,10 @@ import UIKit
 
 class FeedDatasource:NSObject, UITableViewDataSource{
     
-    var row :[Feed] = []
+    var row :[FeedViewModel] = []
     
     func updateRows(_ feed:[Feed]){
-        row = feed
+        row = feed.map({ FeedViewModel( $0) })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,7 +24,7 @@ class FeedDatasource:NSObject, UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.reuseIdentifier, for: indexPath) as? FeedTableViewCell else{
             return UITableViewCell()
         }
-        
+        cell.configureViewModel(row[indexPath.row])        
         return cell
     }
     

@@ -32,4 +32,19 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var likes: UILabel!
     @IBOutlet weak var comments: UILabel!
     
+    
+    func configureViewModel(_ feedViewModel:FeedViewModel){
+        userName.text = feedViewModel.userName
+        designation.text = feedViewModel.designation
+        timestamp.text = feedViewModel.timestamp
+        articleContent.text = feedViewModel.articleContent
+        articleTitle.text = feedViewModel.articleTitle
+        articleLink.text = feedViewModel.articleLink
+        likes.text = feedViewModel.likes
+        comments.text = feedViewModel.comments
+        if feedViewModel.mediaUrl == nil{
+        
+        }
+    }
+    
 }
