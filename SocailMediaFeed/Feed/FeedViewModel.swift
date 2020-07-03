@@ -14,12 +14,14 @@ class FeedViewModel{
     var userName: String?
     var designation: String?
     var timestamp: String?
-    var mediaUrl: String?
     var articleContent: String?
     var articleTitle: String?
-    var articleLink: String?
+    var articleLink: NSAttributedString?
     var likes: String?
     var comments: String?
+    var mediaUrl: String?
+    var mediaImage:UIImage?
+    var avtarImage:UIImage? = UIImage(named: "placeholder")
     
     init(_ feed:Feed) {
         if let first = feed.user?.first{
@@ -30,8 +32,12 @@ class FeedViewModel{
         if let media = feed.media?.first{
             mediaUrl = media.image
             articleTitle = media.title
-            articleLink = media.url
             
+            if let link = media.url{
+                let attributedString = NSMutableAttributedString(string: link)
+                attributedString.addAttribute(.link, value: link, range: NSRange(location: 0, length: link.count))
+                articleLink =  attributedString
+            }            
         }
         if let like = feed.likes{
             likes = "Likes \(like.formatUsingAbbrevation())"
@@ -43,8 +49,14 @@ class FeedViewModel{
         if let time = feed.createdAt{
             timestamp = time.timeAgoSinceNow()
         }
-        
-        
-        articleContent = feed.content        
+        articleContent = feed.content
+    }
+    
+    func updateAvatarImage(_ image:UIImage?){
+        self.avtarImage = image
+    }
+    
+    func updateMediaImage(_ image:UIImage?){
+        self.mediaImage = image
     }
 }
