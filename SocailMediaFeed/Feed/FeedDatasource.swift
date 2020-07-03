@@ -12,8 +12,32 @@ class FeedDatasource:NSObject, UITableViewDataSource{
     
     var row :[FeedViewModel] = []
     
-    func updateRows(_ feed:[Feed]){
-        row = feed.map({ FeedViewModel( $0) })
+    func updateRows(_ feed:[Feed], shouldAppend:Bool){
+        if shouldAppend {
+            let newItems = feed.map({ FeedViewModel( $0) })
+            row.append(contentsOf: newItems)
+        }else{
+            row = feed.map({ FeedViewModel( $0) })
+        }
+        
+    }
+    
+    func updateRowAvatar(_ image:UIImage?, forRow row:Int) -> Bool{
+        let item = self.row[row]
+        if item.avtarImage == UIImage(named: "placeholder"){
+            item.updateAvatarImage(image)
+            return true
+        }
+        return false
+    }
+    
+    func updateRowMedia(_ image:UIImage?, forRow row:Int) -> Bool{
+        let item = self.row[row]
+        if item.mediaImage == nil {
+            item.updateMediaImage(image)
+            return true
+        }
+        return false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
