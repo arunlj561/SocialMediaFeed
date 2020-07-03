@@ -11,10 +11,10 @@
 		7F090A1C24AE87B300BB930E /* FeedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F090A1B24AE87B300BB930E /* FeedListViewModel.swift */; };
 		7F4FF78824AF5B8B0003DC46 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4FF78724AF5B8B0003DC46 /* ImageDownloader.swift */; };
 		7F6C8ACB24AECEB700387D61 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6C8ACA24AECEB700387D61 /* Box.swift */; };
+		7FB14C3C24AFA45300960054 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB14C3B24AFA45300960054 /* CoreDataManager.swift */; };
 		7FC8477724AE058200663229 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8477624AE058200663229 /* AppDelegate.swift */; };
 		7FC8477B24AE058200663229 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8477A24AE058200663229 /* ViewController.swift */; };
 		7FC8477E24AE058200663229 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8477C24AE058200663229 /* Main.storyboard */; };
-		7FC8478124AE058200663229 /* SocailMediaFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8477F24AE058200663229 /* SocailMediaFeed.xcdatamodeld */; };
 		7FC8478324AE058400663229 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8478224AE058400663229 /* Assets.xcassets */; };
 		7FC8478624AE058400663229 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8478424AE058400663229 /* LaunchScreen.storyboard */; };
 		7FC8479124AE058400663229 /* SocailMediaFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8479024AE058400663229 /* SocailMediaFeedTests.swift */; };
@@ -40,11 +40,11 @@
 		7F090A1B24AE87B300BB930E /* FeedListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListViewModel.swift; sourceTree = "<group>"; };
 		7F4FF78724AF5B8B0003DC46 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		7F6C8ACA24AECEB700387D61 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		7FB14C3B24AFA45300960054 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7FC8477324AE058200663229 /* SocailMediaFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocailMediaFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC8477624AE058200663229 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FC8477A24AE058200663229 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7FC8477D24AE058200663229 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7FC8478024AE058200663229 /* SocailMediaFeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SocailMediaFeed.xcdatamodel; sourceTree = "<group>"; };
 		7FC8478224AE058400663229 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FC8478524AE058400663229 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FC8478724AE058400663229 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +108,7 @@
 			children = (
 				7FC847A224AE076400663229 /* ServiceManager.swift */,
 				7F4FF78724AF5B8B0003DC46 /* ImageDownloader.swift */,
+				7FB14C3B24AFA45300960054 /* CoreDataManager.swift */,
 			);
 			path = "API Manager";
 			sourceTree = "<group>";
@@ -135,14 +136,13 @@
 			children = (
 				7FC8477624AE058200663229 /* AppDelegate.swift */,
 				7FC847A124AE074400663229 /* Feed */,
+				7FB14C3A24AFA27400960054 /* API Manager */,
 				7FC8479F24AE070500663229 /* Extras.swift */,
 				7F6C8ACA24AECEB700387D61 /* Box.swift */,
-				7FB14C3A24AFA27400960054 /* API Manager */,
 				7FC8477C24AE058200663229 /* Main.storyboard */,
 				7FC8478224AE058400663229 /* Assets.xcassets */,
 				7FC8478424AE058400663229 /* LaunchScreen.storyboard */,
 				7FC8478724AE058400663229 /* Info.plist */,
-				7FC8477F24AE058200663229 /* SocailMediaFeed.xcdatamodeld */,
 			);
 			path = SocailMediaFeed;
 			sourceTree = "<group>";
@@ -270,10 +270,10 @@
 				7FC8477B24AE058200663229 /* ViewController.swift in Sources */,
 				7FC8477724AE058200663229 /* AppDelegate.swift in Sources */,
 				7FC8479C24AE060E00663229 /* FeedDatasource.swift in Sources */,
-				7FC8478124AE058200663229 /* SocailMediaFeed.xcdatamodeld in Sources */,
 				7F090A1C24AE87B300BB930E /* FeedListViewModel.swift in Sources */,
 				7F6C8ACB24AECEB700387D61 /* Box.swift in Sources */,
 				7FC847A524AE0F4600663229 /* User.swift in Sources */,
+				7FB14C3C24AFA45300960054 /* CoreDataManager.swift in Sources */,
 				7FC847A024AE070500663229 /* Extras.swift in Sources */,
 				7FC847A324AE076400663229 /* ServiceManager.swift in Sources */,
 				7FC8479E24AE06AC00663229 /* FeedTableViewCell.swift in Sources */,
@@ -543,19 +543,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		7FC8477F24AE058200663229 /* SocailMediaFeed.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				7FC8478024AE058200663229 /* SocailMediaFeed.xcdatamodel */,
-			);
-			currentVersion = 7FC8478024AE058200663229 /* SocailMediaFeed.xcdatamodel */;
-			path = SocailMediaFeed.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 7FC8476B24AE058200663229 /* Project object */;
 }
