@@ -10,6 +10,7 @@ import UIKit
 
 
 class FeedListViewModel {
+    //initial fecth
     init() {
         fetchFeed()
     }

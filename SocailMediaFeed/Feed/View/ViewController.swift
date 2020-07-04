@@ -24,6 +24,7 @@ class ViewController: UIViewController, RefreshViews {
         self.bindViewModel()
     }
     
+    // bind view model
     func bindViewModel(){
         self.viewModel.error.bindHandler { [unowned self] (error) in
             if let error = error{
@@ -52,6 +53,7 @@ class ViewController: UIViewController, RefreshViews {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    // setting table view
     func setupTableView(){
         tableView.dataSource = datasource
         datasource.delegate = self
@@ -59,7 +61,7 @@ class ViewController: UIViewController, RefreshViews {
         tableView.reloadData()
     }
         
-    
+    // Update delegates
     func deleteRows(forindexPath indexPath: IndexPath) {
         self.tableView.deleteRows(at: [indexPath], with: .automatic)
     }
@@ -78,6 +80,7 @@ class ViewController: UIViewController, RefreshViews {
 
 extension ViewController:UIScrollViewDelegate{
 
+    // check if at bottom then fetch new
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let offsetY = scrollView.contentOffset.y

@@ -31,8 +31,7 @@ class FeedViewModel{
         }
         if let media = feed.media{
             mediaUrl = media.image
-            articleTitle = media.title
-            
+            articleTitle = media.title            
             if let link = media.url{
                 let attributedString = NSMutableAttributedString(string: link)
                 attributedString.addAttribute(.link, value: link, range: NSRange(location: 0, length: link.count))

@@ -19,14 +19,14 @@ protocol RefreshViews:class {
 class FeedDatasource:NSObject, UITableViewDataSource{
     
     weak var delegate:RefreshViews?
-    
+    // update downladed avtar image
     func updateRowAvatar(_ image:UIImage?, forRow row:IndexPath){
         let feed = self._fetchedResultsController?.object(at: row)
         if feed?.avtarImage == nil{
             feed?.updateAvtarImage(image)
         }
     }
-    
+    // update downladed media image
     func updateRowMedia(_ image:UIImage?, forRow row:IndexPath){
         let feed = self._fetchedResultsController?.object(at: row)
         if feed?.mediaImage == nil{
@@ -34,6 +34,7 @@ class FeedDatasource:NSObject, UITableViewDataSource{
         }
     }
         
+    // get url for avtar image
     func getAvtarImageUrl(_ indexPath:IndexPath) -> URL?{
         let feed = self.fetchedResultsController.object(at: indexPath)
         if let url = URL(string: FeedViewModel.init(feed).userAvatar ?? ""){
@@ -41,6 +42,7 @@ class FeedDatasource:NSObject, UITableViewDataSource{
         }
         return nil
     }
+    // get url for media image
     func getMediaImageUrl(_ indexPath:IndexPath) -> URL?{
         let feed = self.fetchedResultsController.object(at: indexPath)
         if let url = URL(string: FeedViewModel.init(feed).mediaUrl ?? ""){
@@ -53,6 +55,7 @@ class FeedDatasource:NSObject, UITableViewDataSource{
     var _fetchedResultsController: NSFetchedResultsController<Feeds>? = nil
     var managedObjectContext :NSManagedObjectContext = CoreDataManager.persistentContainer.viewContext
     
+    // fetch results conntroller
     var fetchedResultsController: NSFetchedResultsController<Feeds>
     {
     
