@@ -49,6 +49,12 @@ class FeedViewModel{
         if let time = feed.createdAt{
             timestamp = time.timeAgoSinceNow()
         }
+        if let avtarData = feed.user?.avtarImage{
+            avtarImage = UIImage(data: avtarData)
+        }
+        if let mediaData = feed.media?.mediaImage{
+            mediaImage = UIImage(data: mediaData)
+        }
         articleContent = feed.content
     }
     

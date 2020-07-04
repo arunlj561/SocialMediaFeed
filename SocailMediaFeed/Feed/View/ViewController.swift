@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UpdateFeeds {
-    
+class ViewController: UIViewController, RefreshViews {
     
     let viewModel = FeedListViewModel()
     var avatarDownloaders = Set<ImageDownloader>()
@@ -20,33 +19,29 @@ class ViewController: UIViewController, UpdateFeeds {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.delegate = self
         self.setupTableView()
         
     }
     
     func setupTableView(){
-        tableView.dataSource = datasource        
+        tableView.dataSource = datasource
+        datasource.delegate = self
         tableView.delegate = self
         tableView.reloadData()
     }
+        
     
-    func updateDatasource(_ feed: [Feeds], shouldAppend: Bool, insertIndexPath: [IndexPath]) {
-        self.datasource.updateRows(feed, shouldAppend: shouldAppend)
-        if insertIndexPath.count > 0{
-            DispatchQueue.main.async {
-                self.tableView.beginUpdates()
-                self.tableView.insertRows(at: insertIndexPath, with: .bottom)
-                self.tableView.endUpdates()
-            }
-        }else{
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }            
-        }
+    func deleteRows(forindexPath indexPath: IndexPath) {
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
+    func updateRows(forindexPath indexPath: IndexPath) {
+        self.tableView.reloadRows(at: [indexPath], with: .none)
+    }
     
+    func insertRows(forindexPath indexPath: IndexPath) {
+        self.tableView.reloadData()
+    }
 }
 
 extension ViewController:UIScrollViewDelegate{
@@ -70,15 +65,11 @@ extension ViewController:UITableViewDelegate{
     }
     
     func updateAvatarImage(_ indexPath:IndexPath){
-        if let url = viewModel.getAvtarImageUrl(indexPath){
+        if let url = datasource.getAvtarImageUrl(indexPath){
             // fetch new image
             if avatarDownloaders.filter({ $0.imageUrl == url && $0.imageCache != nil}).first == nil{
                 let downloader = ImageDownloader.init(url) { (image) in
-                    if self.datasource.updateRowAvatar(image, forRow: indexPath.row){
-                        DispatchQueue.main.async {
-                            self.tableView.reloadRows(at: [indexPath], with: .none)
-                        }
-                    }
+                    self.datasource.updateRowAvatar(image, forRow: indexPath)                    
                 }
                 avatarDownloaders.insert(downloader)
             }
@@ -86,15 +77,11 @@ extension ViewController:UITableViewDelegate{
     }
     
     func updateMediaImage(_ indexPath:IndexPath){
-        if let url = viewModel.getMediaImageUrl(indexPath){
+        if let url = datasource.getMediaImageUrl(indexPath){
             // fetch new image
             if mediaDownloaders.filter({ $0.imageUrl == url && $0.imageCache != nil}).first == nil{
                 let downloader = ImageDownloader.init(url) { (image) in
-                    if self.datasource.updateRowMedia(image, forRow: indexPath.row){
-                        DispatchQueue.main.async {
-                            self.tableView.reloadRows(at: [indexPath], with: .none)
-                        }
-                    }
+                    self.datasource.updateRowMedia(image, forRow: indexPath)
                 }
                 mediaDownloaders.insert(downloader)
             }

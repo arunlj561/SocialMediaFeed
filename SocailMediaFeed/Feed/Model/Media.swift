@@ -19,26 +19,24 @@ class Media:NSManagedObject, Codable{
         case url
     }
     
-        @NSManaged var id:String?
-        @NSManaged var blogId:String?
-        @NSManaged var createdAt:Date?
-        @NSManaged var image:String?
-        @NSManaged var title:String?
-        @NSManaged var url:String?
-
-    
-    
+    @NSManaged var id:String?
+    @NSManaged var blogId:String?
+    @NSManaged var createdAt:Date?
+    @NSManaged var image:String?
+    @NSManaged var title:String?
+    @NSManaged var url:String?
+    @NSManaged var mediaImage:Data?
     
     // MARK: - Decodable
     required convenience init(from decoder: Decoder) throws {
         guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext,
             let managedObjectContext = decoder.userInfo[codingUserInfoKeyManagedObjectContext] as? NSManagedObjectContext,
             let entity = NSEntityDescription.entity(forEntityName: "Media", in: managedObjectContext) else {
-            fatalError("Failed to decode User")
+                fatalError("Failed to decode User")
         }
-
+        
         self.init(entity: entity, insertInto: managedObjectContext)
-
+        
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decodeIfPresent(String.self, forKey: .id)
         self.blogId = try container.decodeIfPresent(String.self, forKey: .blogId)
@@ -51,7 +49,7 @@ class Media:NSManagedObject, Codable{
         self.url = try container.decodeIfPresent(String.self, forKey: .url)
         
     }
-
+    
     // MARK: - Encodable
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)

@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class Feeds:NSManagedObject, Codable{
+    
+    
     enum CodingKeys: String, CodingKey {
         case id
         case createdAt
@@ -27,6 +29,7 @@ class Feeds:NSManagedObject, Codable{
     var likes:Int64?
     @NSManaged var media:Media?
     @NSManaged var user:Users?
+    @NSManaged var addedAt:Date?
     
     // MARK: - Decodable
     required convenience init(from decoder: Decoder) throws {
@@ -53,7 +56,7 @@ class Feeds:NSManagedObject, Codable{
         if let users = try container.decodeIfPresent([Users].self, forKey: .user)?.first{
             self.user = users
         }
-        
+        self.addedAt = Date()
         
     }
 
@@ -68,8 +71,21 @@ class Feeds:NSManagedObject, Codable{
         try container.encode(media,forKey: .media)
         try container.encode(user,forKey: .user)
     }
+    
+     class func fetchRequest() -> NSFetchRequest<Feeds> {
+        return NSFetchRequest<Feeds>(entityName: "Feeds")
+    }
+    
+    func updateAvtarImage(_ image:UIImage?){
+        self.user?.avtarImage = image?.jpegData(compressionQuality: 0.0)
+        CoreDataManager.saveContext()
+    }
+    func updatemediaImage(_ image:UIImage?){
+        self.media?.mediaImage = image?.jpegData(compressionQuality: 0.0)
+        CoreDataManager.saveContext()
+    }
+    
 }
-
 
 public extension CodingUserInfoKey {
     // Helper property to retrieve the Core Data managed object context
