@@ -22,14 +22,14 @@ class FeedDatasource:NSObject, UITableViewDataSource{
     
     func updateRowAvatar(_ image:UIImage?, forRow row:IndexPath){
         let feed = self._fetchedResultsController?.object(at: row)
-        if feed?.user?.avtarImage == nil{
+        if feed?.avtarImage == nil{
             feed?.updateAvtarImage(image)
         }
     }
     
     func updateRowMedia(_ image:UIImage?, forRow row:IndexPath){
         let feed = self._fetchedResultsController?.object(at: row)
-        if feed?.media?.mediaImage == nil{
+        if feed?.mediaImage == nil{
             feed?.updatemediaImage(image)
         }
     }
@@ -120,4 +120,6 @@ extension FeedDatasource:NSFetchedResultsControllerDelegate{
                 break
         }
     }
+    
+    
 }

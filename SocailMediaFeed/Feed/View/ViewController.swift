@@ -14,13 +14,42 @@ class ViewController: UIViewController, RefreshViews {
     var avatarDownloaders = Set<ImageDownloader>()
     var mediaDownloaders = Set<ImageDownloader>()
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView:UITableView!
     var datasource = FeedDatasource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
+        self.bindViewModel()
+    }
+    
+    func bindViewModel(){
+        self.viewModel.error.bindHandler { [unowned self] (error) in
+            if let error = error{
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.showErrorAlert(error)
+                }
+            }
+        }
+        self.viewModel.hideLoader.bindHandler { [unowned self] (hide) in
+            if let hide = hide, hide {
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()                 
+                }
+            }
+        }
+    }
+    
+    func showErrorAlert(_ error:Error){
+        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        let okaction =  UIAlertAction(title: "Ok", style: .default) { (action) in
+            alertController.dismiss(animated: true, completion: nil)
+        }
         
+        alertController.addAction(okaction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func setupTableView(){
@@ -40,6 +69,9 @@ class ViewController: UIViewController, RefreshViews {
     }
     
     func insertRows(forindexPath indexPath: IndexPath) {
+        if self.activityIndicator.isHidden == false{
+            self.activityIndicator.stopAnimating()
+        }
         self.tableView.reloadData()
     }
 }

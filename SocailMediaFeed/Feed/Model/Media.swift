@@ -25,7 +25,7 @@ class Media:NSManagedObject, Codable{
     @NSManaged var image:String?
     @NSManaged var title:String?
     @NSManaged var url:String?
-    @NSManaged var mediaImage:Data?
+    
     
     // MARK: - Decodable
     required convenience init(from decoder: Decoder) throws {

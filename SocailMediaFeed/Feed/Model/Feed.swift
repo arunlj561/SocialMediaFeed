@@ -30,6 +30,8 @@ class Feeds:NSManagedObject, Codable{
     @NSManaged var media:Media?
     @NSManaged var user:Users?
     @NSManaged var addedAt:Date?
+    @NSManaged var avtarImage:Data?
+    @NSManaged var mediaImage:Data?
     
     // MARK: - Decodable
     required convenience init(from decoder: Decoder) throws {
@@ -77,11 +79,12 @@ class Feeds:NSManagedObject, Codable{
     }
     
     func updateAvtarImage(_ image:UIImage?){
-        self.user?.avtarImage = image?.jpegData(compressionQuality: 0.0)
+        self.avtarImage = image?.jpegData(compressionQuality: 0.0)
         CoreDataManager.saveContext()
+        
     }
     func updatemediaImage(_ image:UIImage?){
-        self.media?.mediaImage = image?.jpegData(compressionQuality: 0.0)
+        self.mediaImage = image?.jpegData(compressionQuality: 0.0)
         CoreDataManager.saveContext()
     }
     

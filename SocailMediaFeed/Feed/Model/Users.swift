@@ -31,7 +31,7 @@ class Users:NSManagedObject, Codable{
     @NSManaged var city:String?
     @NSManaged var designation:String?
     @NSManaged var about:String?
-    @NSManaged var avtarImage:Data?
+    
     
     // MARK: - Decodable
     required convenience init(from decoder: Decoder) throws {

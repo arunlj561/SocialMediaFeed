@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--My feed-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SocailMediaFeed" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,18 +148,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="7eb-pN-9xG">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="C8J-F6-gfx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Zdk-hJ-J6G"/>
                             <constraint firstItem="C8J-F6-gfx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jpR-Ld-eNu"/>
                             <constraint firstItem="C8J-F6-gfx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="k7T-S9-lTb"/>
+                            <constraint firstItem="7eb-pN-9xG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mB3-uy-Dht"/>
                             <constraint firstItem="C8J-F6-gfx" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="uqj-xE-def"/>
+                            <constraint firstItem="7eb-pN-9xG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yMT-oW-K6j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="QJm-t4-cK3"/>
+                    <navigationItem key="navigationItem" title="My feed" id="QJm-t4-cK3"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="7eb-pN-9xG" id="Fzj-4R-c40"/>
                         <outlet property="tableView" destination="C8J-F6-gfx" id="n9j-VL-N6a"/>
                     </connections>
                 </viewController>

@@ -89,11 +89,10 @@ class ServiceManager {
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
                 decoder.userInfo[codingUserInfoKeyManagedObjectContext] = managedObjectContext
                 let feeds = try decoder.decode([Feeds].self, from: data)
-                try managedObjectContext.save()
-                
+                try managedObjectContext.save()                
                 completion(.success(feeds))
             }catch (let error) {
-                completion(.failure(error))
+                print(error)
             }
         }
         task.resume()
