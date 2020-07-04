@@ -23,13 +23,13 @@ class FeedViewModel{
     var mediaImage:UIImage?
     var avtarImage:UIImage? = UIImage(named: "placeholder")
     
-    init(_ feed:Feed) {
-        if let first = feed.user?.first{
+    init(_ feed:Feeds) {
+        if let first = feed.user{
             userAvatar = first.avatar
             userName = (first.name ?? "") + " " + (first.lastname ?? "")
             designation = first.designation
         }
-        if let media = feed.media?.first{
+        if let media = feed.media{
             mediaUrl = media.image
             articleTitle = media.title
             

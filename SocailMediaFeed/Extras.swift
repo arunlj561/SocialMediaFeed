@@ -26,7 +26,7 @@ func getQueryParams(_ param:[String:Any?]) -> [URLQueryItem]?{
     }
 }
 
-extension Int{
+extension Int64{
     func formatUsingAbbrevation () -> String {
         let numFormatter = NumberFormatter()
 

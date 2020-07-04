@@ -12,9 +12,9 @@ class FeedDatasource:NSObject, UITableViewDataSource{
     
     var row :[FeedViewModel] = []
     
-    func updateRows(_ feed:[Feed], shouldAppend:Bool){
+    func updateRows(_ feed:[Feeds], shouldAppend:Bool){
         if shouldAppend {
-            let newItems = feed.map({ FeedViewModel( $0) })
+            let newItems = feed.map({ FeedViewModel( $0 ) })
             row.append(contentsOf: newItems)
         }else{
             row = feed.map({ FeedViewModel( $0) })

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol UpdateFeeds:class {
-    func updateDatasource(_ feed:[Feed], shouldAppend:Bool, insertIndexPath:[IndexPath])
+    func updateDatasource(_ feed:[Feeds], shouldAppend:Bool, insertIndexPath:[IndexPath])
 }
 
 class FeedListViewModel {
@@ -19,7 +19,7 @@ class FeedListViewModel {
     
     var page = 1
     var totalCount = 0
-    var totalFeeds:Box<[Feed]> = Box([])
+    var totalFeeds:Box<[Feeds]> = Box([])
     var isLoading:Bool = false
     weak var delegate:UpdateFeeds?
     

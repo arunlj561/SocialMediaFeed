@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController, UpdateFeeds {
     
     
-    
     let viewModel = FeedListViewModel()
     var avatarDownloaders = Set<ImageDownloader>()
     var mediaDownloaders = Set<ImageDownloader>()
@@ -32,7 +31,7 @@ class ViewController: UIViewController, UpdateFeeds {
         tableView.reloadData()
     }
     
-    func updateDatasource(_ feed: [Feed], shouldAppend: Bool, insertIndexPath: [IndexPath]) {
+    func updateDatasource(_ feed: [Feeds], shouldAppend: Bool, insertIndexPath: [IndexPath]) {
         self.datasource.updateRows(feed, shouldAppend: shouldAppend)
         if insertIndexPath.count > 0{
             DispatchQueue.main.async {

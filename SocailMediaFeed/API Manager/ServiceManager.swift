@@ -54,7 +54,7 @@ class ServiceManager {
     private init() {
     }
     
-    func getUserFeeds(_ pageNo:Int, completion:@escaping((ServiceResult<[Feed]>) -> Void)){
+    func getUserFeeds(_ pageNo:Int, completion:@escaping((ServiceResult<[Feeds]>) -> Void)){
         let feedParam = ServiceParamType.feed(baseUrl)
         guard let url = feedParam.getUrl(pageNo) else {
             return
@@ -68,12 +68,29 @@ class ServiceManager {
             guard let data = data else{
                 return
             }
-            do{                
-                let jsonDecoder = JSONDecoder.init()
+            do{
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+
+                /*
+                let jsonDecoder = JSONDecoder.init()
                 jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
                 let feeds = try jsonDecoder.decode([Feed].self, from: data)
+                completion(.success(feeds))
+                */
+                
+                guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext else {
+                    fatalError("Failed to retrieve managed object context")
+                }
+                
+                // Parse JSON data
+                let managedObjectContext = CoreDataManager.persistentContainer.viewContext
+                let decoder = JSONDecoder()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                decoder.userInfo[codingUserInfoKeyManagedObjectContext] = managedObjectContext
+                let feeds = try decoder.decode([Feeds].self, from: data)
+                try managedObjectContext.save()
+                
                 completion(.success(feeds))
             }catch (let error) {
                 completion(.failure(error))
